@@ -6,8 +6,8 @@ services:
         ports:
             - "8083:8083"
             - "8086:8086"
-            - "8090:8090"
             - "8088:8088"
+            - "8090:8090"
         env_file:
             - 'env.influxdb'
         volumes:
@@ -21,8 +21,10 @@ services:
             - "3000:3000"
         env_file:
             - 'env.grafana'
+        volumes:
+            - grafanadata:/var/lib/grafana
         links:
             - influxdb
-
 volumes:
     dbdata:
+    grafanadata:
