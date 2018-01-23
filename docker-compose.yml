@@ -10,6 +10,8 @@ services:
             - "8090:8090"
         env_file:
             - 'env.influxdb'
+        networks:
+            - smarthome
         volumes:
             - dbdata:/var/lib/influxdb
     grafana:
@@ -19,10 +21,16 @@ services:
             - "3000:3000"
         env_file:
             - 'env.grafana'
-        volumes:
-            - grafanadata:/var/lib/grafana
+        networks:
+            - smarthome
         depends_on:
             - influxdb
+        volumes:
+            - grafanadata:/var/lib/grafana
+
+networks:
+    smarthome:
+        
 volumes:
     dbdata:
     grafanadata:
