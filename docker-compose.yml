@@ -11,8 +11,6 @@ services:
         env_file:
             - 'env.influxdb'
         volumes:
-            # Data persistency
-            # sudo mkdir -p /srv/docker/influxdb/data
             - dbdata:/var/lib/influxdb
     grafana:
         image: grafana/grafana:latest
@@ -23,7 +21,7 @@ services:
             - 'env.grafana'
         volumes:
             - grafanadata:/var/lib/grafana
-        links:
+        depends_on:
             - influxdb
 volumes:
     dbdata:
