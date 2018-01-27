@@ -30,7 +30,7 @@ services:
 
 networks:
     smarthome:
-        
+
 volumes:
     dbdata:
     grafanadata:
