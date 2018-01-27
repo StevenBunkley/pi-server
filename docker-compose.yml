@@ -1,7 +1,7 @@
 version: "3"
 services:
     influxdb:
-        image: influxdb:latest
+        image: hypriot/rpi-influxdb
         container_name: influxdb
         ports:
             - "8083:8083"
@@ -15,7 +15,7 @@ services:
         volumes:
             - dbdata:/var/lib/influxdb
     grafana:
-        image: grafana/grafana:latest
+        image: fg2it/grafana-armhf
         container_name: grafana
         ports:
             - "3000:3000"
