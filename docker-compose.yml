@@ -23,8 +23,6 @@ services:
             - 'env.grafana'
         networks:
             - smarthome
-        depends_on:
-            - influxdb
         volumes:
             - grafanadata:/var/lib/grafana
 
